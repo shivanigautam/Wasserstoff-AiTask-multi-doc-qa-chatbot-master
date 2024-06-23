@@ -1,0 +1,47 @@
+#flask-chatbot-popup {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 20px;
+    width: 300px;
+    border: 1px solid #ccc;
+    background: white;
+    z-index: 1000;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#flask-chatbot-popup-header {
+    background: #0073aa;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#flask-chatbot-popup-form {
+    padding: 10px;
+}
+
+#flask-chatbot-popup-result {
+    padding: 10px;
+}
+
+#flask-chatbot-popup-open {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #0073aa;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+#flask-chatbot-popup-close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}

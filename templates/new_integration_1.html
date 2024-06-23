@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Integration</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>New Integration</h1>
+        <div id="unique-title-section">
+            <h2>Unique Title</h2>
+            <input type="text" id="title" placeholder="Enter a unique title">
+            <button id="check-now">Check Now</button>
+            <p id="title-status"></p>
+            <div id="loader" style="display: none;">Loading...</div>
+        </div>
+
+        <div id="content-section" style="display: none;">
+            <h2>Content Ingestion</h2>
+            <div class="tabs">
+                <button class="tab-button" data-tab="pdf-tab">Add context from PDF</button>
+                <button class="tab-button" data-tab="api-tab">Add context from API</button>
+                <button class="tab-button" data-tab="direct-tab">Add direct context</button>
+            </div>
+
+            <div id="pdf-tab" class="tab-content">
+                <h3>Add context from PDF</h3>
+                <input type="file" id="pdf-file">
+                <button id="submit-pdf">Submit</button>
+                <div id="loader-pdf" style="display: none;">Loading...</div>
+            </div>
+
+            <div id="api-tab" class="tab-content" style="display: none;">
+                <h3>Add context from API</h3>
+                <input type="text" id="api-url" placeholder="Enter API URL">
+                <button id="submit-api">Submit</button>
+                <div id="loader-api" style="display: none;">Loading...</div>
+            </div>
+
+            <div id="direct-tab" class="tab-content" style="display: none;">
+                <h3>Add direct context</h3>
+                <textarea id="direct-content" placeholder="Enter your content here" style="height: 200px;"></textarea>
+                <button id="submit-direct">Submit</button>
+                <div id="loader-direct" style="display: none;">Loading...</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="success-modal" class="modal">
+        <div class="modal-content">
+            <p>Ingestion successful!</p>
+            <button id="close-modal">Close</button>
+            <a href="/add_new">Add more</a>
+            <a href="/chatbot?index=" id="chatbot-link">Check Your Bot</a>
+            <a href="/new_integration" id="close">New Integration</a>
+
+        </div>
+    </div>
+</body>
+</html>

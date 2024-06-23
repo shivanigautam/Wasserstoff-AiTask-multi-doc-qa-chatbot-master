@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leadership Conference 2022</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                </ul>
+            </nav>
+            <div class="hero">
+                <h1>Empower Your Bussiness With AI</h1>
+<!--                <p>July 12 to 15, 2022 | Irvine Square, NY</p>-->
+            </div>
+        </div>
+    </header>
+
+    <section id="highlights" class="highlights">
+        <div class="container">
+            <div class="highlight">
+                <img src="{{ url_for('static', filename='img/4.jpg') }}" alt="Create ChatBot">
+                <p>Create ChatBot</p>
+            </div>
+            <div class="highlight">
+                <img src="{{ url_for('static', filename='img/2.jpg') }}" alt="Integrate With Your Webpage">
+                <p>Integrate With Your Webpage</p>
+            </div>
+            <div class="highlight">
+                <img src="{{ url_for('static', filename='img/1.png') }}" alt="Serve User">
+                <p>Serve User</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2>Check This Out</h2>
+            <a href="#" class="btn">New Integration</a>
+            <a href="#" class="btn">Test ChatBot</a>
+        </div>
+    </section>
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        // Add any JavaScript here
+    </script>
+</body>
+</html>

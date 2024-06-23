@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html class="js flexbox canvas canvastext webgl no-touch geolocation postmessage no-websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers no-applicationcache svg inlinesvg smil svgclippaths">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>AI Bot</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google Fonts -->
+    <link href="{{ url_for('static', filename='css/normalize.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static', filename='css/font-awesome.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static', filename='css/owl-carousel.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static', filename='css/templatemo-style.css') }}" rel="stylesheet" type="text/css">
+    <script src="{{ url_for('static', filename='js/modernizr-2.6.2.min.js') }}"></script>
+    <style>
+        .site-top {
+            position: relative;
+            background-image: url('{{ url_for('static', filename='img/wall2.jpg') }}');
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="site-top" id="top">
+        <div class="site-top-overlay"></div>
+        <div class="site-header">
+            <div class="container">
+
+                <div class="main-navigation">
+                    <a href="#" class="visible-xs toggle-menu"><i class="fa fa-bars"></i></a>
+                    <nav class="site-navigation">
+                        <ul>
+                            <li><a href="/">Home</a></li>
+                            <li><a href="#cta">Register</a></li>
+                            <li><a href="#contact">Contact Us</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div class="welcome-text">
+            <div class="container text-center white-text">
+                <div class="col-xs-8 col-xs-offset-2">
+
+
+
+
+        <h1>Registered Sites</h1>
+        <div id="url-list">
+            {% for item in urls %}
+            <h2 style="color: white;">
+                <div>{{ loop.index }}. Title:- {{ item.name }} Url: - <a href="{{ item.url }}" style="color: white;"> {{ item.url }}</a></div>
+            </h2>
+            {% endfor %}
+        </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <section id="cta">
+        <div class="container">
+            <span class="decoration-header decoration-2"></span>
+            <div class="inside accent page-section">
+                <div class="row">
+                    <div class="col-md-12 text-center white-text">
+                        <h2>Stay In Touch</h2>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <form action="#" method="post" class="cta-form" id="templatemo-subscribe">
+                        <fieldset class="col-md-offset-3 col-md-4">
+                            <input type="email" id="cta-email" placeholder="Enter your email here...">
+                        </fieldset>
+                        <fieldset class="col-md-5">
+                            <input type="submit" id="cta-submit" value="Submit Now" class="button outline white">
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="page-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center space40">
+                    <h4>Feel free to send us a message about anything!</h4>
+                </div>
+            </div>
+            <div class="row">
+                <form action="#" method="post" class="contact-form" id="templatemo-contact">
+                    <fieldset class="col-md-4 col-sm-6">
+                        <input type="text" id="your-name" placeholder="Your Name...">
+                    </fieldset>
+                    <fieldset class="col-md-4 col-sm-6">
+                        <input type="email" id="email" placeholder="Your Email...">
+                    </fieldset>
+                    <fieldset class="col-md-4 col-sm-12">
+                        <input type="text" id="your-subject" placeholder="Subject...">
+                    </fieldset>
+                    <fieldset class="col-md-12 col-sm-12">
+                        <textarea name="message" id="message" cols="30" rows="5" placeholder="Leave your message..."></textarea>
+                    </fieldset>
+                    <fieldset class="col-md-12 col-sm-12">
+                        <input type="submit" class="button big default" value="Send Message">
+                    </fieldset>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-md-12">
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="copyright-text">Copyright © 2024 AI ChatBot | Design: <a href="http://www.google.com/" title="free AI Chatbot">Call us @111-222-333-444</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script>window.jQuery || document.write('<script src="{{ url_for('static', filename='js/vendor/jquery-1.10.2.min.js') }}"><\/script>')</script>
+    <script src="{{ url_for('static', filename='js/plugins.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

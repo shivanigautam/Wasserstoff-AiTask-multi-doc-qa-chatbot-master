@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Integration Document</title>
+    <style>
+        /* Define your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        .content {
+            margin-bottom: 20px;
+        }
+        .code-snippet {
+            background-color: #f0f0f0;
+            padding: 10px;
+            margin-bottom: 10px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <h1>Integration Document</h1>
+
+    <div class="content">
+        <h2>Flask URL:</h2>
+        <p>{{ flask_url }}</p>
+    </div>
+
+    <div class="content">
+        <h2>Available Models:</h2>
+        <ul>
+            {% for model in model_list %}
+                <li>{{ model }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="content">
+        <h2>Code Snippet:</h2>
+        <div class="code-snippet">
+            <pre>
+                <code>
+                    jQuery(document).ready(function($) {
+                        // Your JavaScript code here
+                    });
+                </code>
+            </pre>
+        </div>
+    </div>
+
+</body>
+</html>

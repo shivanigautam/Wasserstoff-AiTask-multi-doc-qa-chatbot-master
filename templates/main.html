@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page</title>
+</head>
+<body>
+    <h1>Welcome to the Contextual Chatbot Homepage</h1>
+
+    <p>If you have already created your Knowledge base earlier using Data Ingestion method. Then you can directly
+        click on ChatBot button to Ask Your Queries. If you want to add new or another document or delete the
+        index then click on Data Ingestion button first.
+    </p>
+
+    <h4>Please choose an option from below:</h4>
+
+    <!-- Link to Data Ingestion route -->
+    <a href="{{ url_for('data_ingest') }}"><button type="button">Data Ingestion</button></a>
+
+    <!-- Link to ChatBot route-->
+    <a href="{{ url_for('chatbot_route') }}"><button type="button">ChatBot</button></a>
+</body>
+</html>

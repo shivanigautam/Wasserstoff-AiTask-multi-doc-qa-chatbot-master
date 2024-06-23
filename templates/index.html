@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/chatbot-popup.css') }}">
+</head>
+<body>
+    <div id="chatbot-popup">
+        <div id="chatbot-popup-header">
+            <h1>Chatbot</h1>
+            <button id="chatbot-popup-close">X</button>
+        </div>
+        <div id="chatbot-popup-results">
+            <!-- Results will be appended here -->
+        </div>
+        <form id="chatbot-popup-form" method="post">
+            <input type="text" name="user_query" id="user_query" placeholder="Type your query here..." required>
+            <select name="chat_model" id="chat_model">
+                {% for model in available_models %}
+                    <option value="{{ model }}" {% if model == selected_model %}selected{% endif %}>{{ model }}</option>
+                {% endfor %}
+            </select>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+    <button id="chatbot-popup-open">Chat with us</button>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{{ url_for('static', filename='js/chatbot-popup.js') }}"></script>
+</body>
+</html>

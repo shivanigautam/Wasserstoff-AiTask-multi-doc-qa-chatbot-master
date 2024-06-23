@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Ingestion</title>
+</head>
+<body>
+    <h1>Data Ingestion</h1>
+    <form method="post">
+
+        <p>Enter the directory path containing documents without quotes("C:\Users\Desktop\xyz", C:\Users\Desktop\xyz)</p>
+        <label for="directory_path">Directory Path:</label>
+        <input type="text" name="directory_path">
+
+        <p>Enter the pdf/docx file path without quotes("C:\Users\Desktop\xyz.pdf", C:\Users\Desktop\xyz.pdf)</p>
+        <label for="file_path">File Path:</label>
+        <input type="text" name="file_path">
+        <br>
+        <br>
+        <p>After entering the path press "Ingest Data" button and wait till the data is inserted, it will then redirect to Chatbot page </p>
+        <br>
+        <button type="submit">Ingest Data</button>
+        <a href="{{ url_for('chatbot_route') }}"><button type="button">Query</button></a>
+
+
+        <h1>Delete Index</h1>
+        <p>Enter the index name or leave blank to delete default index with name "qp-ai-assessment"</p>
+        <input type="text" name="index_name">
+
+        <button type="submit" name="delete_kb">Delete Knowledge Base</button>
+    </form>
+</body>
+</html>

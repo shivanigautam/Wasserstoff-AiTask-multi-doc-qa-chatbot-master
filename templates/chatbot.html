@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en" class="js flexbox canvas canvastext webgl no-touch geolocation postmessage no-websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers no-applicationcache svg inlinesvg smil svgclippaths">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Bot</title>
+    <meta name="description" content="">
+    <!-- Google Fonts -->
+    <link href="{{ url_for('static', filename='css/normalize.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static', filename='css/font-awesome.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static', filename='css/owl-carousel.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static', filename='css/templatemo-style.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static', filename='css/chatbot-popup.css') }}" rel="stylesheet" type="text/css">
+    <script src="{{ url_for('static', filename='js/modernizr-2.6.2.min.js') }}"></script>
+    <style>
+        .site-top {
+            position: relative;
+            background-image: url('{{ url_for('static', filename='img/wall2.jpg') }}');
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="site-top" id="top">
+        <div class="site-top-overlay"></div>
+        <div class="site-header">
+            <div class="container">
+                <a href="#" class="site-brand">
+                    <img src="{{ url_for('static', filename='img/img_2.png') }}" alt="Alpines template">
+                </a>
+                <div class="main-navigation">
+                    <a href="#" class="visible-xs toggle-menu"><i class="fa fa-bars"></i></a>
+                    <nav class="site-navigation">
+                        <ul>
+                            <li><a href="/">Home</a></li>
+                            <li><a href="#cta">Register</a></li>
+                            <li><a href="#contact">Contact Us</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div class="welcome-text">
+            <div class="container text-center white-text">
+                <div class="col-xs-8 col-xs-offset-2">
+                    <h1>{{ index|upper }} Personal Chatbot</h1>
+
+                    <h4>Our AI Chatbot service can be integrated with any WordPress site. Here you can try our <a href="http://127.0.0.1:5000/">CHATBOT</a>
+                    <br>
+                        Please tell your friends about our website. Thank you.</h4>
+                    <a href="http://127.0.0.1:5000/new_integration" class="button outline white">New Integration</a>
+                    <a href="http://127.0.0.1:5000//reg_web" class="button default">Try ChatBot</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="cta">
+        <div class="container">
+            <span class="decoration-header decoration-2"></span>
+            <div class="inside accent page-section">
+                <div class="row">
+                    <div class="col-md-12 text-center white-text">
+                        <h2>Stay In Touch</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <form action="#" method="post" class="cta-form" id="templatemo-subscribe">
+                        <fieldset class="col-md-offset-3 col-md-4">
+                            <input type="email" id="cta-email" placeholder="Enter your email here...">
+                        </fieldset>
+                        <fieldset class="col-md-5">
+                            <input type="submit" id="cta-submit" value="Submit Now" class="button outline white">
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="page-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center space40">
+                    <h4>Feel free to send us a message about anything!</h4>
+                </div>
+            </div>
+            <div class="row">
+                <form action="#" method="post" class="contact-form" id="templatemo-contact">
+                    <fieldset class="col-md-4 col-sm-6">
+                        <input type="text" id="your-name" placeholder="Your Name...">
+                    </fieldset>
+                    <fieldset class="col-md-4 col-sm-6">
+                        <input type="email" id="email" placeholder="Your Email...">
+                    </fieldset>
+                    <fieldset class="col-md-4 col-sm-12">
+                        <input type="text" id="your-subject" placeholder="Subject...">
+                    </fieldset>
+                    <fieldset class="col-md-12 col-sm-12">
+                        <textarea name="message" id="message" cols="30" rows="5" placeholder="Leave your message..."></textarea>
+                    </fieldset>
+                    <fieldset class="col-md-12 col-sm-12">
+                        <input type="submit" class="button big default" value="Send Message">
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="social-icons">
+                        <li><a href="#" class="fa fa-facebook"></a></li>
+                        <li><a href="#" class="fa fa-twitter"></a></li>
+                        <li><a href="#" class="fa fa-linkedin"></a></li>
+                        <li><a href="#" class="fa fa-behance"></a></li>
+                        <li><a href="#" class="fa fa-google-plus"></a></li>
+                        <li><a href="#" class="fa fa-rss"></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="copyright-text">Copyright © 2024 AI ChatBot | Design: <a href="http://www.google.com/" title="free AI Chatbot">Call us @111-222-333-444</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chatbot Popup -->
+    <div id="chatbot-popup">
+        <div id="chatbot-popup-header">
+            <h1>{{ index|upper }} Chatbot</h1>
+
+            <button id="chatbot-popup-close">X</button>
+        </div>
+        <div id="chatbot-popup-results">
+            <!-- Results will be appended here -->
+        </div>
+        <form id="chatbot-popup-form" method="post">
+            <input type="hidden" name="index" id="index" value="{{ index }}">
+            <input type="text" name="user_query" id="user_query" placeholder="Type your query here..." required>
+            <select name="chat_model" id="chat_model">
+                {% for model in available_models %}
+                    <option value="{{ model }}" {% if model == selected_model %}selected{% endif %}>{{ model }}</option>
+                {% endfor %}
+            </select>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+    <button id="chatbot-popup-open">Chat with us</button>
+
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script>window.jQuery || document.write('<script src="{{ url_for('static', filename='js/vendor/jquery-1.10.2.min.js') }}"><\/script>')</script>
+    <script src="{{ url_for('static', filename='js/plugins.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/chatbot-popup.js') }}"></script>
+    <script>
+        $(document).ready(function() {
+            $('#chatbot-popup-open').click(function() {
+                $('#chatbot-popup').show();
+                $(this).hide();
+            });
+
+            $('#chatbot-popup-close').click(function() {
+                $('#chatbot-popup').hide();
+                $('#chatbot-popup-open').show();
+            });
+        });
+    </script>
+</body>
+</html>
