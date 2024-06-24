@@ -64,10 +64,12 @@ it is a paid service. You can add some minimal amount of money as it costs very 
 
 ``pip install unstructured[local-inference]``
 
-## NOTE:- 
-1. if running on window 
-
+## NOTE:-
+1. In you are running this repo on windows 10, then you might encounter following error
+![pebblo.py_pwd_error_windows_10.png](pebblo.py_pwd_error_windows_10.png)
+2. In order to resolve this error, in pebblo.py shift the "import pwd" to line no. 262 inside try block.
 Now run flask app using command 
+![shift_import_line262.png](shift_import_line262.png)
 
 ``python -m flask run``
 
