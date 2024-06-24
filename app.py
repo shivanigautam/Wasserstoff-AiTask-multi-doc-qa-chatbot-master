@@ -298,9 +298,10 @@ def download_file(url, dest_path):
 
 def check_and_download_file(file_path, download_url):
     if not os.path.exists(file_path):
-        logging.info(f"LLAMA model does not exist. Downloading from {download_url}  ...")
-        logging.info("It one time process and it will take few minute as its downloading 4.21Gb data ....")
-        logging.info("Please wait...")
+        print(f"LLAMA model does not exist. Downloading from {download_url}  ...")
+        print("It one time process and it will take few minute as its downloading 4.21Gb data ....")
+        print("Please wait...")
+
         download_file(download_url, file_path)
     else:
         print(f"File already exists at {file_path}")
