@@ -286,11 +286,13 @@ def update_chatbot_plugin():
         return jsonify({'error': f'Error sending file to client: {str(e)}'}), 500
 
 def download_file(url, dest_path):
+    new_path = dest_path + ".dw"
     response = requests.get(url, stream=True)
     if response.status_code == 200:
-        with open(dest_path, 'wb') as file:
+        with open(new_path, 'wb') as file:
             for chunk in response.iter_content(chunk_size=8192):
                 file.write(chunk)
+        os.rename(new_path, dest_path)
         print(f"File downloaded successfully and saved to {dest_path}")
     else:
         print(f"Failed to download file. HTTP Status code: {response.status_code}")
@@ -301,6 +303,7 @@ def check_and_download_file(file_path, download_url):
         print(f"LLAMA model does not exist. Downloading from {download_url}  ...")
         print("It one time process and it will take few minute as its downloading 4.21Gb data ....")
         print("Please wait...")
+        print("or you can download model from above link and paste into /llm directory")
 
         download_file(download_url, file_path)
     else:
