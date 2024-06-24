@@ -87,7 +87,7 @@ here are few points that can be implemented:
 1. Add ReRanker to rerank top 3 results fetched from the db, as it is not always the case that correct answer is in the first chunk.
 2. Build a RAG evaluation pipeline
 3. Implement RAG pipeline with other open-source LLMs like(llama-2-13B, Mistral 7B, falcon)
-4. Fine tulsning LLM model
+4. Fine tuning LLM model
 
 
 ## More Documentation
