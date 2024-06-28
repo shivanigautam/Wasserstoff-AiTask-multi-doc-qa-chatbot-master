@@ -153,7 +153,7 @@ def ingestion():
         required: false
     responses:
       200:
-        description: "Data ingestion result (Typical response time: ~27s)"
+        description: "Data ingestion result (Typical response time: ~27ms)"
     """
     try:
         title = request.form.get('title')
@@ -196,22 +196,6 @@ def ingestion():
         pinecone_instance = Pinecone(api_key=pinecone_key)
         existing_indexes = pinecone_instance.list_indexes()
         existing_indexes = [index['name'] for index in existing_indexes] if existing_indexes else []
-        for line in lines:
-            if line.strip().startswith("define('CHATBOT_INDEX',"):
-                updated_lines.append(f"define('CHATBOT_INDEX', '{title}')\n")
-            else:
-                updated_lines.append(line)
-
-        try:
-            with open(new_file, 'w') as file:
-                file.writelines(updated_lines)
-        except Exception as e:
-            return jsonify({'error': f'Error saving updated PHP file: {str(e)}'}) , 500
-
-        try:
-            return send_file(new_file, as_attachment=True)
-        except Exception as e:
-            return jsonify({'error': f'Error sending file to client: {str(e)}'}) , 500
 
         if title in existing_indexes:
             return jsonify({'success': True})
@@ -236,6 +220,34 @@ def list_urls():
     existing_indexes = [{"name": i, "url": f"/bot?index={i}"} for i in existing_indexes]
     return render_template('reg_web.html', urls=existing_indexes)
 
+def download_file(url, dest_path):
+    new_path = dest_path + ".dw"
+    response = requests.get(url, stream=True)
+    if response.status_code == 200:
+        with open(new_path, 'wb') as file:
+            for chunk in response.iter_content(chunk_size=8192):
+                file.write(chunk)
+        os.rename(new_path, dest_path)
+        print(f"File downloaded successfully and saved to {dest_path}")
+    else:
+        print(f"Failed to download file. HTTP Status code: {response.status_code}")
+
+def check_and_download_file(file_path, download_url):
+    if not os.path.exists(file_path):
+        print(f"LLAMA model does not exist. Downloading from {download_url}  ...")
+        print("It one time process and it will take few minute as its downloading 4.21Gb data ....")
+        print("Please wait...")
+        print("or you can download model from above link and paste into /llm directory")
+
+        download_file(download_url, file_path)
+    else:
+        print(f"File already exists at {file_path}")
+
+
+check_and_download_file(
+    'llms/llama-2-7b-chat.ggmlv3.q4_1.bin',
+    'https://huggingface.co/TheBloke/Llama-2-7B-Chat-GGML/resolve/main/llama-2-7b-chat.ggmlv3.q4_1.bin?download=true')
+
 @app.route('/chatbot_plugin', methods=['GET'])
 def update_chatbot_plugin():
     """
@@ -248,7 +260,7 @@ def update_chatbot_plugin():
         required: true
     responses:
       200:
-        description: "Chatbot plugin updated (Typical response time: ~20ms)"
+        description: "Chatbot plugin updated (Typical response time: ~10ms)"
     """
     title = request.args.get('index')
     if title is None:
@@ -264,35 +276,22 @@ def update_chatbot_plugin():
         return jsonify({'error': 'Original PHP file not found.'}), 404
 
     updated_lines = []
+    for line in lines:
+        if line.strip().startswith("define('CHATBOT_INDEX',"):
+            updated_lines.append(f"define('CHATBOT_INDEX', '{title}')\n")
+        else:
+            updated_lines.append(line)
 
-def download_file(url, dest_path):
-    new_path = dest_path + ".dw"
-    response = requests.get(url, stream=True)
-    if response.status_code == 200:
-        with open(new_path, 'wb') as file:
-            for chunk in response.iter_content(chunk_size=8192):
-                file.write(chunk)
-        os.rename(new_path, dest_path)
-        print(f"File downloaded successfully and saved to {dest_path}")
-    else:
-        print(f"Failed to download file. HTTP Status code: {response.status_code}")
+    try:
+        with open(new_file, 'w') as file:
+            file.writelines(updated_lines)
+    except Exception as e:
+        return jsonify({'error': f'Error saving updated PHP file: {str(e)}'}) , 500
 
-
-def check_and_download_file(file_path, download_url):
-    if not os.path.exists(file_path):
-        print(f"LLAMA model does not exist. Downloading from {download_url}  ...")
-        print("It one time process and it will take few minute as its downloading 4.21Gb data ....")
-        print("Please wait...")
-        print("or you can download model from above link and paste into /llm directory")
-
-        download_file(download_url, file_path)
-    else:
-        print(f"File already exists at {file_path}")
-
-check_and_download_file(
-    'llms/llama-2-7b-chat.ggmlv3.q4_1.bin',
-    'https://huggingface.co/TheBloke/Llama-2-7B-Chat-GGML/resolve/main/llama-2-7b-chat.ggmlv3.q4_1.bin?download=true')
-
+    try:
+        return send_file(new_file, as_attachment=True)
+    except Exception as e:
+        return jsonify({'error': f'Error sending file to client: {str(e)}'}) , 500
 
 if __name__ == "__main__":
 
