@@ -81,6 +81,14 @@ Maybe llama-2-13b can be better choice than this one or can also try with 8-bit 
 The purpose of choosing the llama-2-7b-q4 was to run this locally on my PC and 
 as per my PC's configuration this 4-bit-quantised model was the best fit in terms of max RAM usage.
 
+## API swagger documentation url 
+http://127.0.0.1:5000/apidocs/ (change base url {127.0.0.1:5000} according to your's)
+NOTE:- Response time mention on the swagger documents is tested on following configration 
+CPU: i5 6th gen, 2 core 
+RAM: 8 GB
+GPU: N/A
+it is highly recommended that to run this project on specified configration mention above in this documents
+
 ## Next Steps
 As per the requirements all the points have been implemented and one can test it from their end. Now for the next steps
 here are few points that can be implemented:

@@ -12,3 +12,4 @@ langchain-openai==0.0.6
 flask==3.0.2
 PyMuPDF
 fpdf
+flasgger==0.9.7.1
